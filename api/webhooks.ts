@@ -49,7 +49,7 @@ export default async function webhooks(request: VercelRequest, response: VercelR
 		}
 
 		case 'text/plain': {
-			const body: string = request.body.trim().slice(0, 2000)
+			const body: string = request.body.trim().slice(0, 2000).replace("twitter.com","fxtwitter.com").replace("x.com","fxtwitter.com")
 			if (body.length === 0) {
 				response.status(400).send({error: 'empty body'})
 				return
